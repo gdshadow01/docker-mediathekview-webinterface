@@ -28,9 +28,7 @@ RUN apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Maximize only the main/initial window.
-RUN \
-    sed-patch 's/<application type="normal">/<application type="normal" title="Mediathekview">/' \
-        /etc/xdg/openbox/rc.xml
+COPY src/main-window-selection.xml /etc/openbox/main-window-selection.xml
 
 # Set environment variables.
 ENV APP_NAME="Mediathekview" \
